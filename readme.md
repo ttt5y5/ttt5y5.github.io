@@ -6,4 +6,4 @@
 -md : MarkDown Language 태그를 사용하지 않는 언어
 레포지토리(저장소) 초기와: git init
 업로드 1.커밋(commit) 2. 푸시(push)
-다운로드 1. 풀(pull)
+다운로드 1.. 풀(pull)
