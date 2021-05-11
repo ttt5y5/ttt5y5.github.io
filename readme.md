@@ -16,4 +16,5 @@ ip주소버젼: ipv4, ipv6
 서버(응답프로그랩=response) - 아파치, 톰캣서버
 클라이언트(요청프로그램=request) - 웹브라우저
 html은 마크업이 태그로 구성.<의미잇는문자>...<의미잇는문자>
-html 버젼: html5,이젠되나
+html 버젼: html5,
+url경로(path):/루트, /test/html5.html
