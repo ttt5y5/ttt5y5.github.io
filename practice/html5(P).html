@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5연습</title>
+    <style>
+    table, tr, th, td {
+        border:dotted 1px red;
+        border-collapse: collapse;
+        font-size: 25px;
+    }   </style>
+    <style>
+        header, nav, section, aside, footer{
+            border:1px solid black
+        }
+        header>h1 {
+            margin: 10px 10px;
+            border: 1px solid red;
+        }
+        header>h1, footer>h2 {text-align: center;}
+        nav {display:block; height: 60px;}
+        nav > ul > li {
+            float:left; margin-right: 40px;
+        }
+        div.contents{
+            position: relative;
+            overflow: hidden;
+        }
+        section{
+            width: 79.5%; display: inline-block;
+        }
+        section > article {
+            margin: 30px 20px;
+            border: 1px solid red; 
+        }
+        aside {
+            width: 20%; display: inline-block;
+            height: 100%;
+            right:  0px;
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+
+ <header>
+     <h1>Header</h1>
+    </header>
+<nav>
+    <ul>
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+    </ul>
+</nav>
+<div class="contents">
+<section>
+    <h2>section</h2>
+     <article>
+        <h2>article</h2>
+    </article>
+    <article>
+        <h2>article</h2>
+     </article>
+</section>
+<aside>
+    <h2>aside</h2>
+</aside>
+</div>
+<footer>
+    <h2>footer</h2>
+</footer>
+<table>
+    <thead>
+    <tr>
+        <th>순번</th>
+        <th>책이름</th>
+        <th>가격</th>
+        <th>판매량</th>
+        <th>판매액</th>
+    </tr>
+</thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>HTML</td>
+        <td>7,000</td>
+        <td rowspan="2">1,000</td>
+        <td>7,000,000</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>JS</td>
+        <td>7,000</td>
+        <!-- <td>1,000</td> -->
+        <td>7,000,000</td>
+    </tr>
+    </tbody>
+    <tfoot>
+        <td colspan="4">총액</td>
+        <td>14,000,000</td>
+    </tfoot>
+</table>
+<iframe width="753" height="424" src="https://www.youtube.com/embed/DVzdG-Bg-Io" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<img width="50%" src="/practice/good.jpg" alt="엑박입니다">
+<input type="text" name="text" id="111">
+<input type="password" name="password" id="222">
+<input type="date" name="date" id="333">
+<input type="range" name="range" id="444">
+<input type="color" name="color" id="555">
+<input type="radio" name="radio" id="666">
+<input type="radio" name="radio" id="666">
+<input type="checkbox" name="checkbox" id="777">
+<input type="checkbox" name="checkbox" id="777">
+<input type="file" name="file" id="888">
+<input type="file" name="file" id="888">
+
+</body>
+</html>
