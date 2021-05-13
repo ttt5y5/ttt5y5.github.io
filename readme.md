@@ -19,3 +19,9 @@ html은 마크업이 태그로 구성.<의미잇는문자>...<의미잇는문자
 html 버젼: html5,
 url경로(path):/루트, /test/html5.html
 커밋확인
+#### 20210513(목)
+제이쿼리 코어 다운: min(압축,속도up) / 일반(개발-속도normal)
+RestAPI서버 json데이터를 html에서 불러와서파싱
+외부 data.js 파일에서 json데이터를 html에서 불러와서파싱
+RestAPI서버 중 코로나19 확진자 데이터(빅 데이터)를 받아서 html에서 파싱(화면에 적용하기)
+RestAPI서버주소: https://coroname.me/getdata
