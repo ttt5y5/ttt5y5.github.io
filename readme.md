@@ -20,6 +20,10 @@ html 버젼: html5,
 url경로(path):/루트, /test/html5.html
 커밋확인
 #### 20210513(목)
+픽사베이 이미지 3개: 로고1,슬라이드 이미지1, noImage 1 받고, 경로 적어놓기
+로고:https://pixabay.com/ko/vectors/%EB%88%88-%EA%B3%A0%EC%96%91%EC%9D%B4-%EB%88%88-%EA%B3%A0%EC%96%91%EC%9D%B4-285825/
+슬라이드 이미지:https://pixabay.com/ko/photos/%ED%8F%AD%EC%8A%A4-%EB%8F%99%EB%AC%BC-%EC%95%BC%EC%83%9D-%EC%83%9D%EB%AC%BC-1883658/
+noImage 이미지: https://pixabay.com/ko/vectors/%EB%A7%88%ED%81%AC-%ED%81%AC%EB%A1%9C%EC%8A%A4-%EC%9E%98%EB%AA%BB-%EB%90%9C-%EC%97%86%EC%9D%8C-39951/
 제이쿼리 코어 다운: min(압축,속도up) / 일반(개발-속도normal)
 RestAPI서버 json데이터를 html에서 불러와서파싱
 외부 data.js 파일에서 json데이터를 html에서 불러와서파싱

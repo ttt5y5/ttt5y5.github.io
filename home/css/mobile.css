@@ -1,0 +1,60 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+/* 모바일용 메인페이지 스타일 지정(아래) */
+/* 공통영역 */
+body{  /* body a 태그엔 적용이 않된다.*/
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 16px !important;/* important=중요함, body 폰트크기는 무조건 16px 고정*/
+    letter-spacing: -1px !important;
+    color: #444 !important;
+    word-wrap: break-word !important;/* 워드랩- 단어가 분리가 안되면서 1개의 단위로 줄바꿈이됨 */
+    line-height: 1 !important;/* 단위가 1이면 16px */
+}
+dl, ol, ul { margin-bottom: 0 !important; }
+#container a:hover {color: #000 !important;}/* : 가상선택자 ::가상요소 */
+a:link {color: #444;}
+a:hover {color: #fff !important;}
+a:visited {color: #444;}
+a {text-decoration: none;}/* 링크의 밑줄이 사라짐 */
+/* img {border: none;} */
+
+.clear::after{
+    content: '';
+    clear: both; /* 태그의 위치를 지정하는 float(left/right) 속성값을 초기화 */
+    display: block; /* float는 블럭속성이 없어진것을 clear시키면 다시 블럭속성을 부여 */
+}
+
+/* //공통영역 */
+
+/* 부트스트랩 css 수정 */
+
+.txt_right {
+    text-align: right !important;
+}
+.mt20 { /*네이밍은 부트스트랩과 동일 */
+    margin-top: 20px !important;
+}
+.w100p { /*너비가 100% */
+    width: 100% !important;
+}
+
+/* //부스스트랩 css수정 */
+
+/* 헤더영역 */
+.on {
+    background: #32353d;
+}
+header { /* 태그선택자 */
+    height: 90px;
+    text-align: center;
+    z-index: 200; /* z-index- z(축,상하관계)의 순서 */
+    /* z-inedx:0은 제일 아래, 높을수록 위에 배치. 겹칠때 다른거에 가려지지 않게하기위해 200 적용. */
+    background: rgba(0,0,0,0.5); /* rgba중 a = alpha, 투명도 크기 1:100% */
+    position: absolute; /* left,top 값이 제대로 작동되기위한 문구 */
+    left: 0; top: 0;
+    width: 100%;
+}
+.box_inner {
+    width: 100%; margin: 0 auto;
+}
+/* //헤더영역 */
