@@ -29,3 +29,5 @@ RestAPI서버 json데이터를 html에서 불러와서파싱
 외부 data.js 파일에서 json데이터를 html에서 불러와서파싱
 RestAPI서버 중 코로나19 확진자 데이터(빅 데이터)를 받아서 html에서 파싱(화면에 적용하기)
 RestAPI서버주소: https://coroname.me/getdata
+###20210514(금)
+css3, html5 검사기준
