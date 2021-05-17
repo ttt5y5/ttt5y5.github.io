@@ -8,7 +8,7 @@ body{  /* body a 태그엔 적용이 않된다.*/
     letter-spacing: -1px !important;
     color: #444 !important;
     word-wrap: break-word !important;/* 워드랩- 단어가 분리가 안되면서 1개의 단위로 줄바꿈이됨 */
-    line-height: 1 !important;/* 단위가 1이면 16px */
+    line-height: 1 !important;/* 단위가 1이면 16px. */
 }
 dl, ol, ul { margin-bottom: 0 !important; }
 #container a:hover {color: #000 !important;}/* : 가상선택자 ::가상요소 */
