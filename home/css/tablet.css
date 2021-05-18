@@ -127,4 +127,92 @@
 	}
 
 	/* //최신겔러리 */
+    	/* 전화상담과 최근공지사항 */
+	.appbbs_area {
+		padding: 60px 0px;
+	}
+	.appbbs_box {
+		box-sizing: border-box;
+		padding: 0px 20px;
+	}
+	.app_line {
+		display: inherit;
+		float: left;
+		width: 65%; /* 35%가 최근공지사항영역 */
+		box-sizing: border-box;
+		padding: 46px 0px;
+		background: url(../img/bg_app.jpg); /*단일색상이라 no-repeat 필요없음 */
+		font-size: 0px;
+		text-align: center;
+	}
+	.app_line a {
+		font-size: 21px;
+		display: inline-block;
+		width: 42.4%; /* 65%(app_line)영역 안에서 42.4%*/
+		height: 100px;
+		line-height: 100px;
+		box-sizing: border-box;
+		padding-left: 55px;
+		text-align: left;
+		background: rgba(0,0,0,0.3) url(../img/ico_katalk.png) no-repeat 10px 50%;
+		border: 2px solid #fff;
+		color: #fff;
+		vertical-align: middle; /*세로가운데정렬 */
+		margin-right: 10px;
+	}
+	.app_line a + a {
+		background-image: url(../img/ico_phone.png);
+		margin-right: 0px;
+		padding-left: 65px;
+	}
+	.bbs_line {
+		float: right;
+		width: 29%;
+		border-top: none;
+		padding: inherit;
+	}
+	.bbs_line h3 {
+		font-size: 26px;
+		font-weight: inherit;
+	}
+	.bbs_line .notice_recent li a {
+		display: block;
+		padding-left: 14px;
+		background: url(../img/ico_bullet.png) no-repeat 0px 50%;
+		overflow: hidden;
+		text-overflow: ellipsis; /*문자열이 영역을 벗어나면 ... 표시하는 명령 */
+		white-space: nowrap; /* 문자를 자를시 단어를 기준으로 하지 않겟다. */
+	}
+	/* //전화상담과 최근공지사항 */
+    
+    	/* 푸터영역 */
+	footer {
+		padding: inherit; 
+		text-align: left;
+	}
+	.foot_area {
+		padding-left: 20px;
+		padding-bottom: 0px;
+	}
+	.addr {
+		font-size: 13px;
+		line-height: 1.4;
+	}
+	.br_line {
+		display: inherit; /* 모바일에서 적용햇던 스타일 해제 */
+	}
+	.snslink {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		width: auto;
+		margin: inherit;
+	}
+	.snslink li {
+		margin-left:  15px;
+	}
+
+
+	/* //푸터영역 */
+
 }

@@ -349,6 +349,7 @@ li.imglist2 {
 /*  푸터스타일지정 */
 footer {
     border-top: 1px solid #ddd;
+    text-align: left;
 }
 .foot_area{ /* 모바일에서는 적용안되는 부분 */
     box-sizing: border-box;
