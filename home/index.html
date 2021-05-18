@@ -5,56 +5,116 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- 제이쿼리 코어 임포트 -->
+<!-- 제이쿼리 코어 임포트 가져오기(아래) -->
 <script src="/home/js/jquery-3.6.0.js"></script>
-<!-- 상단 바로가기 링크시 부드럽게 상단으로 이동하는 js 임포트. -->
+<!-- 상단바로가기 클릭시 부드럽게 이동하는 외부 라이브러리 JS 임포트(아래) -->
 <script src="/home/js/jquery.smooth-scroll.min.js"></script>
-<!-- 화면을 초기화 시키는 reset 스타일 임포트:크로스브라이징 처리하기위해 -->
-<!-- 크롬, IE, 엣지, 사파리, 파이어폭스 / h1, p, ul, div 태그의 크기가 다름-->
-<!-- 작업한 결과가 모든 브라우저(크로싱브라우저)에 똑같이 보이게 하기 위한 reset.css(아래)  -->
+<!-- 화면을 초기화 시키는 reset 스타일 임포트:크로스브라이징 처리하기위해서 -->
+<!-- 크롬, IE, 엣지, 사파리, 파이어폭스 h1, p, ul, div 태그의 크기가 조금씩 틀림니다. -->
+<!-- 작업한 결과가 모든 브라우져(크로싱브라우징)에 똑같이 보이게 하기 위한 reset.css(아래) -->
 <link rel="stylesheet" href="/home/css/reset.css">
-<!-- 사용자 정의형 스타일 + 스크립트 추가(아래) -->
+<!-- 여기서 부터 사용자 정의형 스타일 + 스크립트 추가(아래) -->
 <link rel="stylesheet" href="/home/css/mobile.css">
+<!-- 테블릿용 CSS 임포트 -->
+<link rel="stylesheet" href="/home/css/tablet.css">
 <script src="/home/js/main.js"></script>
 <!-- 메인슬라이드 코어 임포트 -->
 <script src="/home/js/slidemain.js"></script>
 <style>
+/* 테블릿용 메인페이지 스타일 지정(아래) */
+@media all and (min-width:801px) {
+	/* 전화상담과 최근공지사항 */
+	.appbbs_area {
+		padding: 60px 0px;
+	}
+	.appbbs_box {
+		box-sizing: border-box;
+		padding: 0px 20px;
+	}
+	.app_line {
+		display: inherit;
+		float: left;
+		width: 65%; /* 35%가 최근공지사항영역 */
+		box-sizing: border-box;
+		padding: 46px 0px;
+		background: url(./img/bg_app.jpg); /*단일색상이라 no-repeat 필요없음 */
+		font-size: 0px;
+		text-align: center;
+	}
+	.app_line a {
+		font-size: 21px;
+		display: inline-block;
+		width: 42.4%; /* 65%(app_line)영역 안에서 42.4%*/
+		height: 100px;
+		line-height: 100px;
+		box-sizing: border-box;
+		padding-left: 55px;
+		text-align: left;
+		background: rgba(0,0,0,0.3) url(./img/ico_katalk.png) no-repeat 10px 50%;
+		border: 2px solid #fff;
+		color: #fff;
+		vertical-align: middle; /*세로가운데정렬 */
+		margin-right: 10px;
+	}
+	.app_line a + a {
+		background-image: url(./img/ico_phone.png);
+		margin-right: 0px;
+		padding-left: 65px;
+	}
+	.bbs_line {
+		float: right;
+		width: 29%;
+		border-top: none;
+		padding: inherit;
+	}
+	.bbs_line h3 {
+		font-size: 26px;
+		font-weight: inherit;
+	}
+	.bbs_line .notice_recent li a {
+		display: block;
+		padding-left: 14px;
+		background: url() no-repeat 0px 50%;
+		overflow: hidden;
+		text-overflow: ellipsis; /*문자열이 영역을 벗어나면 ... 표시하는 명령 */
+		white-space: nowrap; /* 줄바꿈시 단어를 기준으로 하지 않겟다. */
+	}
+	/* //전화상담과 최근공지사항 */
 
-/* 태블릿용 메인페이지 스타일 지정(아래) */
-/* 보통 이미지 슬라이드 처리는 외부 라이브러리(Lib)사용 (니보슬라이드,캐로셀슬라이드) */
-
-
+}
 </style>
 <script>
-// 메인페이지 전용 슬라이드 부분
+// 메인페이지 전용 슬라이드 호출 부분
 $(document).ready(function() {
-
-	//위에서 선언한 함수,변수 사용(아래)
-	// 여기서 함수 호출(실행)
-	slideAuto = setTimeout('play_w("right")', 3000); //3초 마다 play_w 함수 실행
+	//위에서 선언한 함수|변수 사용(아래)
+	//여기서 함수호출(실행)
+	slideAuto = setTimeout('play_w("right")', 3000);//3초마다 play_w함수 실행
 	var slidePlayHide = setTimeout(function(){
-		$('.rollplay').css('display' , 'none');
-	},3000);//3초 후에 rollplay 클래스 영역을 숨김
-	// 3개의 슬라이드 버튼 클릭 액션처리(아래)
-	$('.rollstop').click(function(){
-		//this - 클릭한 본인 태그를 지칭
-		$(this).hide();// stop 버튼 숨김.
-		$('.rollplay').css('display' , 'inline-block');
-		if(slideAuto){
-			clearTimeout(slideAuto);//slideAuto 변수가 없다면 play_w 함수를 중지
+		$('.rollplay').css('display','none');
+	},3000);//3초 후에 rollplay클래스 플레이버튼 영역을 숨김
+	// 3개의 슬라이드 버튼 클랙 액션처리
+	$('.rollstop a').click(function(){
+		// this는 클릭한 본인 태그를 말합니다.
+		$(this).parent().hide();//현재 stop버튼 숨김.
+		$('.rollplay').css('display','inline-block');
+		if(slideAuto) {
+			clearTimeout(slideAuto);//slideAuto변수가 없다면, play_w함수를 실행 중지.
 		}
 	});
 	$('.rollplay a').click(function(){
-		$(this).parent().hide();
-		$('.rollstop').css('display' , 'inline-block');
-		play_w('right');
+		$(this).parent().hide();// a태그의 부모 rollplay영역 입니다.
+		$('.rollstop').css('display','inline-block');
+		play_w('right');//3초마다 슬라이드 이미지 액션일 발생합니다.
+
 	});
 	$('.rollingbtn li.seq a').each(function(index){
 		$(this).click(function(){
 			$('.rollplay').hide();
-			$('.rollstop').css('display' , 'inline-block');
-			if(slideAuto) {clearTimeout(slideAuto);}//슬라이드중지
-			play_w(index);//슬라이드 재시작 (현재 클릭한 index부터)
+			$('.rollstop').css('display','inline-block');
+			if(slideAuto) {
+				clearTimeout(slideAuto);//슬라이드 중지
+			}
+			play_w(index);//슬라이드 재생 : 단 시작위치는 클릭한 index부터 무한반복
 		});
 	});
 });
@@ -72,11 +132,11 @@ $(document).ready(function() {
 			
 			<!-- 상단메뉴메뉴영역 -->
 			<p class="openMOgnb">
-                <a href="#">
-                    <b class="hdd">메뉴열기</b>
-                     <span></span><span></span><span></span>
-                    </a>
-                </p>
+				<a href="#">
+					<b class="hdd">메뉴열기</b> 
+					<span></span><span></span><span></span>
+				</a>
+			</p>
 			<div class="header_cont">
 				<ul class="util clear">
 					<li><a href="login.html">로그인</a></li>
@@ -123,21 +183,21 @@ $(document).ready(function() {
                     <li class="imglist0">
                         <div class="roll_content">
                             <a href="javascript:;">
-							<p class="roll_txtline">OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
+							<p class="roll_txtline">1OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
 							</a>
                         </div>
                     </li>
                     <li class="imglist1">
                         <div class="roll_content">
                             <a href="javascript:;">
-							<p class="roll_txtline">OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
+							<p class="roll_txtline">2OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
 							</a>
                         </div>
                     </li>
                     <li class="imglist2">
                         <div class="roll_content">
                             <a href="javascript:;">
-							<p class="roll_txtline">OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
+							<p class="roll_txtline">3OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
 							</a>
                         </div>
                     </li>
@@ -146,11 +206,12 @@ $(document).ready(function() {
                 <!-- 슬라이드버튼영역 -->
                 <div class="rollbtnArea">
                     <ul class="rollingbtn">
-                        <li class="seq butt0"><a href="#butt"><img src="img/btn_rollbutt_on.png" alt="1번" /></a></li>
-                        <li class="seq butt1"><a href="#butt"><img src="img/btn_rollbutt_off.png" alt="2번" /></a></li>
-                        <li class="seq butt2"><a href="#butt"><img src="img/btn_rollbutt_off.png" alt="3번" /></a></li>
-                        <li class="rollstop"><a href="#" class="stop"><img src="img/btn_roll_stop.png" alt="멈춤" /></a></li>
-                        <li class="rollplay"><a href="#" class="play"><img src="img/btn_roll_play.png" alt="재생" /></a></li>
+						<!-- butt0 a img -->
+                        <li class="seq butt0"><a href="#butt"><img src="./img/btn_rollbutt_on.png" alt="1번" /></a></li>
+                        <li class="seq butt1"><a href="#butt"><img src="./img/btn_rollbutt_off.png" alt="2번" /></a></li>
+                        <li class="seq butt2"><a href="#butt"><img src="./img/btn_rollbutt_off.png" alt="3번" /></a></li>
+                        <li class="rollstop"><a href="#" class="stop"><img src="./img/btn_roll_stop.png" alt="멈춤" /></a></li>
+                        <li class="rollplay"><a href="#" class="play"><img src="./img/btn_roll_play.png" alt="재생" /></a></li>
                     </ul>
                 </div>
                 <!-- //슬라이드버튼영역 -->
@@ -208,7 +269,7 @@ $(document).ready(function() {
 		</div>
 		<!-- //카카오톡상담및최근공지사항영역 -->
 	</div>
-	<!-- //메인콘텐츠영역 -->
+	<!-- //메이콘텐츠영역 -->
 	
 	<!-- 푸터메뉴및사업자정보영역 -->
 	<footer>
