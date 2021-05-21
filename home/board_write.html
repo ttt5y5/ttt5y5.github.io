@@ -50,12 +50,24 @@
             height:150,
             lang:"ko-KR",
             placeholder:'글 내용을 입력해 주세요',
-            fontNames: ['Arial','Arial Black','Nanum Gothic',]
+            fontNames: ['Arial','Arial Black','Nanum Gothic','궁서'],
+            fontSizes: ['8','10','12','14','16','18','20','22','24','26','28','30'],
+            toolbar: [
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['style', ['bold','italic','underline']],
+                ['color', ['forecolor','color']],
+                ['table', ['table']],
+                ['para', ['ul','ol','paragraph']],
+                ['height', ['height']],
+                ['insert', ['link','video']],//'picture'
+                ['view',['fullscreen','help']]
+            ],
+            fontNamesIgnoreCheck: ['Nanum Gothic']
         });
     });
 </script>
 <style>
-
 
 /* 테블릿용 메인페이지 스타일 지정(아래) 801px~ */
 @media all and (min-width:801px) {
