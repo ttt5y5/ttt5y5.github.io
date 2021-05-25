@@ -218,8 +218,12 @@ $(document).ready(function() {
 		<div class="timeline">
 			<!-- timeline time label -->
 			<div class="time-label">
-			<span class="bg-red">댓글리스트 [<span>1</span>]</span>
+			<span class="bg-red" data-toggle="collapse" href="#collapseReply" role="button" id="btn_reply_list">댓글리스트
+				 [<span >1</span>]
+				</span>
 			</div>
+			<!-- 콜랩스 시작 -->
+			<div class="collapse timeline" id="collapseReply">
 			<!-- /.timeline-label -->
 			<!-- timeline item -->
 			<!-- 댓글리스트를 자바스크립트의 빵틀(템플릿)로 만들기  -->
@@ -240,8 +244,43 @@ $(document).ready(function() {
 			</div>
 			{{/each}}
 		</script>
-			
-			<!-- END timeline item -->
+
+		<!-- 페이징 처리 -->
+		<div class="row">
+			<ul class="pagination" style="margin: 0px auto;">
+				<!-- <li class="paginate_button page-item previous disabled" id="example2_previous">
+					<a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+				</li>
+				<li class="paginate_button page-item active">
+					<a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+				</li>
+				<li class="paginate_button page-item ">
+					<a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+				</li>
+				<li class="paginate_button page-item ">
+					<a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+				</li>
+				<li class="paginate_button page-item ">
+					<a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a>
+				</li>
+				<li class="paginate_button page-item ">
+					<a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a>
+				</li>
+				<li class="paginate_button page-item ">
+					<a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a>
+				</li>
+				<li class="paginate_button page-item next" id="example2_next">
+					<a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a>
+				</li> -->
+			</ul>
+			</div>
+			<!-- //페이징 처리 -->
+	        </div>
+	        <!-- //콜랩스 끝 -->
+	    
+		</div>	
+		<!-- END timeline item -->
+
 		</div>
 		</div>
 		<!-- /.col -->
@@ -304,15 +343,40 @@ $(document).ready(function() {
   </div>
   <!-- /.modal -->
   <script>
+	//   페이징처리 함수형 변수
+	var printPagingList = function(pageVO, target){
+		$(target).html('');
+	// pageVO = 스프링에서 받은 json데이터 , 변수3개 pageVO.prev(이전데이터가 있으면  true)  pageVO.next(다음데이터가 있다면 true), pageVO-5페이지로 가정
+	var pagination = '' ;
+	    //Previous 출력
+		pagination += '<li class="paginate_button page-item previous disabled" id="example2_previous">';
+		pagination += '<a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>';
+	    pagination += '</li>'; //pagination = pagination + '<li>';
+		var active = '';
+		for(var i=0; i<pageVO; i++){
+			if(i==0) { active = 'active'; } else { active = ''; };
+			pagination += '<li class="paginate_button page-item '+active+' ">';
+			pagination += '<a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link"> '+(i+1)+' </a>';
+			pagination += '</li>';
+
+		};
+
+		//Next 출력
+		pagination += '<li class="paginate_button page-item next" id="example2_next">';
+		pagination += '<a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a>';
+		pagination += '</li>';
+		$(target).append(pagination);
+	};
+
 	var printReplyList = function(data, templateData, target) {
 		var template = Handlebars.compile(templateData.html());//템플릿을 태그로 변환하는 영역
 		var html = template(data)//파싱처리
 		$('.div_template').remove();
-		target.after(html);
+		target.prepend(html);
 	}
 	  $(document).ready(function(){
-		  $('#btn_reply_write').click(function(){
-			  $.ajax({
+		  $('#btn_reply_list').click(function(){
+			$.ajax({
 				  method:'get',
 				  url:'./board_view.html', //RestAPI URL 입력
 				  dataType:'text',
@@ -325,12 +389,35 @@ $(document).ready(function() {
 					// 자바스크립트는 함수기반 구조화된 언어
 					// 위 result데이터를 #template에 바인시키는 함수호출
 					// 함수의(인자=아규먼트=매개변수=파라미터)
-					printReplyList(result, $('#template'), $('.time-label'));
+					printReplyList(result, $('#template'), $('#collapseReply'));
+					printPagingList(5, '.pagination');
 				  },
 				  error:function(){
 					  alert('RestAPI서버가 작동하지 않습니다.');
 				  }
-
+			  });
+		  });
+		  $('#btn_reply_write').click(function(){
+			  $.ajax({
+				  method:'get',
+				  url:'./board_view.html', //RestAPI URL 입력
+				  dataType:'text',
+				  success:function(result){
+					  result = [
+						{rno:3,bno:2,reply_text:'두번째 댓글입니다.',replyer:'관리자',reg_date:1601234512345},
+						{rno:2,bno:2,reply_text:'첫번째 댓글입니다.',replyer:'관리자',reg_date:1601234512345},
+						{rno:1,bno:2,reply_text:'첫번째 댓글입니다.',replyer:'관리자',reg_date:1601234512345}
+					];
+					//   alert('RestAPI성공');
+					// 자바스크립트는 함수기반 구조화된 언어
+					// 위 result데이터를 #template에 바인시키는 함수호출
+					// 함수의(인자=아규먼트=매개변수=파라미터)
+					printReplyList(result, $('#template'), $('#collapseReply'));
+					printPagingList(6, '.pagination');
+				  },
+				  error:function(){
+					  alert('RestAPI서버가 작동하지 않습니다.');
+				  }
 			  });
 		  });
 	  });
