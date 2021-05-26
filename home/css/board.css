@@ -314,9 +314,10 @@ input::placeholder { color:  #999;}
     border: 1px solid #ccc;
     margin-left: 1px;
 }
+
 .app_content input {
     border: none;
-    width: inherit;
+    /* width: inherit; */
     box-sizing: border-box;
     display: inline-block;
     height: 45px;
