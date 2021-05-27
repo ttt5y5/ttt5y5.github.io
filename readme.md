@@ -6,6 +6,12 @@
 - VS code에서 만든 UI를 이클립스에서 JSP로 변경 한 후 스프링웹프로젝트를 진행합니다.
 - 관리자단 AdminLTE적용-스프링시간.(회원관리CRUD바로jsp, 게시판생성관리CRUD바로jsp)
 
+#### 20210528(금) 작업예정.
+- 관리자단 admin/board_write.html, board_view.html
+- 대시보드 home.html (최근 회원가입정보, 최근 게시물정보)
+- 이클립스로 작업한 html 내용을 -> resources 폴더(admin,home,root파일까지)로 배치
+- 스프링 작업의 시작
+
 #### 20210527(목) 작업.
 - admin/board_list.html 부터 시작.
 - 관리자단 AdminLTE적용-UI시간:(게시판CRUD-html, 대시보드-html)
