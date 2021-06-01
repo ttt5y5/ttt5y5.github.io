@@ -145,7 +145,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">{게시판변수명} 글쓰기</h1>
+            <h1 class="m-0">{게시판변수명} 리스트</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -162,61 +162,89 @@
     <section class="content">
       <div class="container-fluid">
         <!-- 콘텐츠 내용 -->
-        <div class="card card-primary">
+        <div class="card">
           <div class="card-header">
-            <h3 class="card-title">등록</h3>
+            <h3 class="card-title">목록</h3>
+
+            <div class="card-tools">
+              <!-- 내용검색 폼 -->
+              <div class="input-group input-group-md">
+                <form name="form_search" action="board_list.html" method="GET" class="form-horizontal">
+                  <select name="search_type" class="form-control float-left" style="width: inherit;">
+                    <option>전체</option>
+                    <option>제목</option>
+                    <option>내용</option>
+                  </select>  
+                  <input type="text" name="table_search" class="form-control float-left" placeholder="Search" style="width: inherit;">
+                  <div class="input-group-append float-left" style="width: inherit;">
+                    <button type="submit" class="btn btn-default">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>                                
+                </form>
+              </div>
+              <!-- //내용검색 폼 -->
+            </div>
           </div>
           <!-- /.card-header -->
-          <!-- form start -->
-          <!-- 첨부파일을 전송할때 enctype=필수 없으면, 첨부파일이 전송X -->
-          <form name="form_write" action="board_write.html" enctype="multipart/form-data">
-            <div class="card-body">
-              <div class="form-group">
-                <label for="board_type">게시판타입</label>
-                <select name="board_type" class="form-control">
-                  <option>선택</option>
-                  <option>공지사항</option>
-                  <option>겔러리</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="title">글제목</label>
-                <input name="title" type="text" class="form-control" id="title" placeholder="제목을 입력해 주세요" required>
-              </div>
-              <div class="form-group">
-                <label for="content">글내용</label>
-                <textarea name="content" id="content" class="form-control" placeholder="내용을 입력해주세요." required></textarea>
-              </div>
-              <div class="form-group">
-                <label for="writer">작성자</label>
-                <input name="writer" type="text" class="form-control" id="writer" placeholder="작성자를 입력해 주세요" required>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputFile">첨부파일</label>
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input name="file" type="file" class="custom-file-input" id="file0">
-                    <label class="custom-file-label" for="file0">파일선택</label>
-                  </div>
-                </div>
-                <div class="mb-2"></div>
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input name="file" type="file" class="custom-file-input" id="file1">
-                    <label class="custom-file-label" for="file1">파일선택</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- /.card-body -->
-
-            <div class="card-footer text-right">
-              <button type="submit" class="btn btn-primary">등록</button>
-              <a href="board_list.html" class="btn btn-default">목록</a>
-            </div>
-          </form>
+          <div class="card-body table-responsive p-0">
+            <table class="table table-hover">
+              <!-- 줄바꿈않할때 다음 클래스추가 text-nowrap  -->
+              <thead>
+                <tr>
+                  <th class="text-center">BNO</th>
+                  <th class="text-center">BOARD_TYPE</th>
+                  <th class="text-center col-6">TITLE</th>
+                  <th class="text-center">WRITER</th>
+                  <th class="text-center">REG_DATE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- 아래 링크주소에 jsp에서 프로그램처리예정 -->
+                <tr style="cursor: pointer;" onclick="location.replace('board_view.html?bno=183');">
+                  <td>183</td>
+                  <td>NOTICE</td>
+                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                  <td><span class="tag tag-success">Approved</span></td>
+                  <td>11-7-2014</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
         </div>
         <!-- //콘텐츠 내용 -->
+        <!-- 페이징 처리 -->
+        <div class="col-12 text-right">
+          <a href="board_write.html" class="btn btn-primary mb-3">글쓰기</a>
+          <ul class="pagination justify-content-center">
+              <li class="paginate_button page-item previous disabled" id="example2_previous">
+                <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+              </li>
+              <li class="paginate_button page-item active">
+                <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+              </li>
+              <li class="paginate_button page-item ">
+                <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+              </li>
+              <li class="paginate_button page-item ">
+                <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+              </li>
+              <li class="paginate_button page-item ">
+                <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a>
+              </li>
+              <li class="paginate_button page-item ">
+                <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a>
+              </li>
+              <li class="paginate_button page-item ">
+                <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a>
+              </li>
+              <li class="paginate_button page-item next" id="example2_next">
+                <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a>
+              </li>
+          </ul>
+        </div>
+        <!-- //페이징 처리 -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -259,38 +287,5 @@
 <script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes 오른쪽메뉴-로그아웃사용 코어: 사용안함. -->
 <!-- <script src="dist/js/demo.js"></script> -->
-<!-- 첨부파일명을 input태그디자인 안쪽에 집어넣는 확장프로그램 -->
-<script src="/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-<!-- 위 첨부파일 확장프로그램 실행(아래-개발자가 처리) -->
-<script>
-	$(document).ready(function(){
-		bsCustomFileInput.init();
-	});
-</script>
-<!-- 서머노트 웹에디터 실행(아래-개발자가 처리) -->
-<script>
-	$(document).ready(function(){
-		//$('#content_lbl').summernote();//기본실행. 이기본실을 개발자 커스터마이징 합니다.
-		$('#content').summernote({
-			height:150,
-			lang:'ko-KR',
-			placeholder:'글 내용을 입력해 주세요',
-			toolbar: [
-				['fontname',['fontname']],
-				['fontsize',['fontsize']],
-				['style',['bold','italic','underline']],
-				['color',['forecolor','color']],
-				['table',['table']],
-				['para',['ul','ol','paragraph']],
-				['height',['height']],
-				['insert',['link','video']],//'picture',
-				['view',['fullscreen','help']]
-			],
-			fontNames: ['Arial','Arial Black','맑은 고딕','궁서','Nanum Gothic'],
-			fontSizes: ['8','10','12','14','16','18','20','22','24','26','28','30'],
-			fontNamesIgnoreCheck: ['Nanum Gothic']
-		});
-	});
-</script>
 </body>
 </html>
