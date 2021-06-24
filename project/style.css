@@ -3,33 +3,45 @@ html{
     font-family: Arial, Helvetica, sans-serif0;
 }
 
-
+body {
+    background-color: rgb(248, 224, 90);
+}
 .display {
-    background-color: rgb(203, 203, 203);
+    background-color: rgb(118, 194, 230);
+    border:solid 1px;
+    border-color: blue;
     padding: 15px;
     width: 255px;
     text-align: 250px;
     font-size: 20px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
 }
 button {
     padding: 10px;
     width: 67px;
     height: 45px;
     margin-top: 10px;
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(118, 194, 230);
     color: black;
     font-size: 20px;
-    border: solid 0px;
+    border: solid 1px;
+    border-color: blue;
 }
 #r1-1 {
     width: 140px;
+    border-top-left-radius: 13px;
 }
-#r5-1 {
+#r1-2 {
     width: 140px;
+    border-top-right-radius: 13px;
 }
-
+#r6-1 {
+    border-bottom-left-radius: 13px;
+}
+#r6-3 {
+    width: 140px;
+    border-bottom-right-radius: 13px;
+}
 button:hover {
     cursor: pointer;
     background-color: rgb(183, 183, 183);
